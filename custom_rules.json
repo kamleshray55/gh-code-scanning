@@ -1,0 +1,6 @@
+[
+  {
+    "regex": "(?m)^(?!ssh-rsa|ssh-dss|ecdsa-sha2-nistp|-----BEGIN).*$",
+    "description": "Potential SSH Private Key"
+  }
+]
