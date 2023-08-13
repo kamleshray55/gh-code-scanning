@@ -1,10 +1,6 @@
 [
   {
-    "regex": "my-api-key-[a-zA-Z0-9]+",
-    "description": "Custom API Key Pattern"
-  },
-  {
-    "regex": "ssh-rsa",
-    "description": "RSA Private Key"
+    "regex": "^ssh-rsa [A-Za-z0-9+/]+[=]{0,3} [A-Za-z0-9+/]+[=]{0,3} .*$",
+    "description": "SSH Public Key"
   }
 ]
