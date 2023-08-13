@@ -25,4 +25,4 @@ jobs:
         run: pip install truffleHog
 
       - name: Run TruffleHog Scan with Custom Rules
-        run: trufflehog --config $GITHUB_WORKSPACE/trufflehog_config.json .
+        run: trufflehog trufflehog --regex "^ssh-rsa [A-Za-z0-9+/]+[=]{0,3} [A-Za-z0-9+/]+[=]{0,3} .*$"
