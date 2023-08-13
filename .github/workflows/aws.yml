@@ -25,5 +25,4 @@ jobs:
         run: pip install truffleHog
 
       - name: Run TruffleHog Scan with Custom Rules
-        run: |
-          python3 custom_trufflehog.py
+        run: trufflehog --config $GITHUB_WORKSPACE/trufflehog_config.json .
