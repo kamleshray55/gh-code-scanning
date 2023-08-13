@@ -20,4 +20,4 @@ jobs:
         run: pip install truffleHog
 
       - name: Run TruffleHog Scan
-        run: trufflehog --regex --entropy=False --rules custom_rules.json .
+        run: trufflehog --regex --entropy=False --rules $GITHUB_WORKSPACE/custom_rules.json .
