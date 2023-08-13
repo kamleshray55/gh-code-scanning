@@ -19,4 +19,7 @@ jobs:
       - name: Install TruffleHog
         run: pip install truffleHog
       - name: Run TruffleHog Scan
-        run: trufflehog --regex --entropy=False --rules $GITHUB_WORKSPACE/custom_rules.json .
+        run: |
+          CUSTOM_RULES='[{"regex": "^ssh-rsa [A-Za-z0-9+/]+[=]{0,3} [A-Za-z0-9+/]+[=]{0,3} .*$", "description": "SSH Public Key"}]'
+          echo $CUSTOM_RULES > custom_rules.json
+          trufflehog --regex --entropy=False --rules custom_rules.json .
