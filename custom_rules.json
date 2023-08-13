@@ -1,6 +1,10 @@
 [
   {
-    "regex": "(?m)^(?!.*\\b(ssh-rsa|ssh-dss|ecdsa-sha2-nistp|-----BEGIN)\\b).*$",
-    "description": "Potential SSH Private Key"
+    "regex": "my-api-key-[a-zA-Z0-9]+",
+    "description": "Custom API Key Pattern"
+  },
+  {
+    "regex": "ssh-rsa",
+    "description": "RSA Private Key"
   }
 ]
