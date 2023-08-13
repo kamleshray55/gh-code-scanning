@@ -18,6 +18,7 @@ jobs:
 
       - name: Install TruffleHog
         run: pip install truffleHog
-
+      - name: Copy Custom Rules
+        run: cp custom_rules.json $GITHUB_WORKSPACE/custom_rules.json
       - name: Run TruffleHog Scan
         run: trufflehog --regex --entropy=False --rules $GITHUB_WORKSPACE/custom_rules.json .
