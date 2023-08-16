@@ -24,5 +24,8 @@ jobs:
       - name: Install TruffleHog
         run: pip install truffleHog
 
-      - name: Run TruffleHog Scan with Custom Rules
-        run: trufflehog trufflehog --regex "^ssh-rsa [A-Za-z0-9+/]+[=]{0,3} [A-Za-z0-9+/]+[=]{0,3} .*$"
+      - name: Send to Microsoft Teams
+        run: |
+          curl -X POST --data-binary "@trufflehog_config.json" https://publicisgroupe.webhook.office.com/webhookb2/119513de-21e1-42c4-b4bb-8434e5a0a6cf@d52c9ea1-7c21-47b1-82a3-33a74b1f74b8/IncomingWebhook/8264a7f923bc4666b797e25b7ead6b54/25d79032-8b18-4d8a-aeb5-6a4fbdb44c59
+        env:
+          TF_IN_AUTOMATION: 1
