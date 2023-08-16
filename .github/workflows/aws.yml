@@ -1,4 +1,4 @@
-name: TruffleHog Scan
+name: TruffleHog Scan and Send to Teams
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - main # Adjust the branch name as needed
 
 jobs:
-  scanning:
-    name: TruffleHog Scan
+  scanning_and_sending:
+    name: TruffleHog Scan and Send to Teams
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +24,9 @@ jobs:
       - name: Install TruffleHog
         run: pip install truffleHog
 
-      - name: Send to Microsoft Teams
+      - name: Send File to Teams
         run: |
-          curl -X POST --data-binary "@trufflehog_config.json" https://publicisgroupe.webhook.office.com/webhookb2/119513de-21e1-42c4-b4bb-8434e5a0a6cf@d52c9ea1-7c21-47b1-82a3-33a74b1f74b8/IncomingWebhook/8264a7f923bc4666b797e25b7ead6b54/25d79032-8b18-4d8a-aeb5-6a4fbdb44c59
-        env:
-          TF_IN_AUTOMATION: 1
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d @trufflehog_config.json \
+            https://publicisgroupe.webhook.office.com/webhookb2/119513de-21e1-42c4-b4bb-8434e5a0a6cf@d52c9ea1-7c21-47b1-82a3-33a74b1f74b8/IncomingWebhook/8264a7f923bc4666b797e25b7ead6b54/25d79032-8b18-4d8a-aeb5-6a4fbdb44c59
